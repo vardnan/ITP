@@ -19,13 +19,11 @@
 		43163F2D24101A4A00FBEE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43163F2B24101A4A00FBEE3C /* Main.storyboard */; };
 		435C31C52444DE1300CFCDC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C42444DE1300CFCDC3 /* LoginView.swift */; };
 		435C31C72444EF6000CFCDC3 /* PinCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C62444EF6000CFCDC3 /* PinCode.swift */; };
-		436227D22448D2A900427DE2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C3A60E24126CFA00A80517 /* Info.plist */; };
 		436AF8962440E1DD003ECA31 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8952440E1DD003ECA31 /* NotificationView.swift */; };
 		436AF8982440E6B3003ECA31 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8972440E6B3003ECA31 /* NotificationCell.swift */; };
 		43733242243D038600B0F527 /* ClientPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43733241243D038600B0F527 /* ClientPop.swift */; };
 		4374868C241D09C4001F35C1 /* HomeScreen_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374868B241D09C4001F35C1 /* HomeScreen_ViewController.swift */; };
 		43B7780124463B43001211A2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B7780024463B43001211A2 /* SettingsView.swift */; };
-		43B7780524472CB9001211A2 /* ITP.app in Resources */ = {isa = PBXBuildFile; fileRef = 43163F0C240FE8C400FBEE3C /* ITP.app */; };
 		43C3A60D24126B1000A80517 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C3A60C24126B1000A80517 /* GoogleService-Info.plist */; };
 		43C3A6132412B4F400A80517 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3A6122412B4F400A80517 /* TodoView.swift */; };
 		43C3A6152412BB7100A80517 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3A6142412BB7100A80517 /* TodoCell.swift */; };
@@ -144,9 +142,9 @@
 			buildPhases = (
 				A8BCD2B497447CFB2804E398 /* [CP] Check Pods Manifest.lock */,
 				43163F08240FE8C400FBEE3C /* Sources */,
-				43163F09240FE8C400FBEE3C /* Frameworks */,
-				43163F0A240FE8C400FBEE3C /* Resources */,
 				C27A21391B2C0928B8250EC4 /* [CP] Embed Pods Frameworks */,
+				43163F0A240FE8C400FBEE3C /* Resources */,
+				43163F09240FE8C400FBEE3C /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,8 +194,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				43163F2D24101A4A00FBEE3C /* Main.storyboard in Resources */,
-				43B7780524472CB9001211A2 /* ITP.app in Resources */,
-				436227D22448D2A900427DE2 /* Info.plist in Resources */,
 				43C3A60D24126B1000A80517 /* GoogleService-Info.plist in Resources */,
 				43163F1C240FE8CD00FBEE3C /* LaunchScreen.storyboard in Resources */,
 				43163F19240FE8CC00FBEE3C /* Assets.xcassets in Resources */,
