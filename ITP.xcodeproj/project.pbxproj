@@ -27,6 +27,7 @@
 		43C3A60D24126B1000A80517 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C3A60C24126B1000A80517 /* GoogleService-Info.plist */; };
 		43C3A6132412B4F400A80517 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3A6122412B4F400A80517 /* TodoView.swift */; };
 		43C3A6152412BB7100A80517 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3A6142412BB7100A80517 /* TodoCell.swift */; };
+		43E2AF1D2448F5630010334C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C3A60E24126CFA00A80517 /* Info.plist */; };
 		43F92684243F926400CDE5BD /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F92683243F926300CDE5BD /* MarketView.swift */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +197,7 @@
 				43163F2D24101A4A00FBEE3C /* Main.storyboard in Resources */,
 				43C3A60D24126B1000A80517 /* GoogleService-Info.plist in Resources */,
 				43163F1C240FE8CD00FBEE3C /* LaunchScreen.storyboard in Resources */,
+				43E2AF1D2448F5630010334C /* Info.plist in Resources */,
 				43163F19240FE8CC00FBEE3C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
