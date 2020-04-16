@@ -1,0 +1,41 @@
+{
+  "users" : {
+    "ihhqjBDfIYeyl5QqsnFl1LVrXRG3" : {
+      "email" : "zahid@credit-suisse.com",
+      "isCheckedCount" : 0,
+      "kycitems" : {
+        "Attach Government Documents" : {
+          "isChecked" : false
+        },
+        "Client Knowledge" : {
+          "isChecked" : false
+        },
+        "Contact Information" : {
+          "isChecked" : false
+        },
+        "PEP Check" : {
+          "isChecked" : false
+        },
+        "Risk Assessment" : {
+          "isChecked" : false
+        },
+        "Source of Wealth" : {
+          "isChecked" : false
+        },
+        "Transit Account Holders" : {
+          "isChecked" : false
+        },
+        "Transit Account Numbers" : {
+          "isChecked" : false
+        }
+      },
+      "password" : "123123",
+      "riskValue" : 0,
+      "todos" : {
+        "Hello" : {
+          "isChecked" : false
+        }
+      }
+    }
+  }
+}

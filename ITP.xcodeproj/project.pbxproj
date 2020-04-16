@@ -19,6 +19,7 @@
 		43163F2D24101A4A00FBEE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43163F2B24101A4A00FBEE3C /* Main.storyboard */; };
 		435C31C52444DE1300CFCDC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C42444DE1300CFCDC3 /* LoginView.swift */; };
 		435C31C72444EF6000CFCDC3 /* PinCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C62444EF6000CFCDC3 /* PinCode.swift */; };
+		436227D22448D2A900427DE2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43C3A60E24126CFA00A80517 /* Info.plist */; };
 		436AF8962440E1DD003ECA31 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8952440E1DD003ECA31 /* NotificationView.swift */; };
 		436AF8982440E6B3003ECA31 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8972440E6B3003ECA31 /* NotificationCell.swift */; };
 		43733242243D038600B0F527 /* ClientPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43733241243D038600B0F527 /* ClientPop.swift */; };
@@ -196,6 +197,7 @@
 			files = (
 				43163F2D24101A4A00FBEE3C /* Main.storyboard in Resources */,
 				43B7780524472CB9001211A2 /* ITP.app in Resources */,
+				436227D22448D2A900427DE2 /* Info.plist in Resources */,
 				43C3A60D24126B1000A80517 /* GoogleService-Info.plist in Resources */,
 				43163F1C240FE8CD00FBEE3C /* LaunchScreen.storyboard in Resources */,
 				43163F19240FE8CC00FBEE3C /* Assets.xcassets in Resources */,
