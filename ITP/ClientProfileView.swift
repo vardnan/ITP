@@ -42,6 +42,9 @@ class ClientProfileView: UIViewController {
         self.performSegue(withIdentifier: "ClientToKYC", sender: uid)
     }
     
+    @IBAction func ClientToInfo(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ProfileToInfo", sender: uid)
+    }
     @IBOutlet weak var riskLabel: UILabel!
     
     @IBAction func riskSlider(_ sender: UISlider) {
@@ -86,6 +89,16 @@ class ClientProfileView: UIViewController {
             kycVC.uid = uid
             
         }
+            
+        else if segue.identifier == "ProfileToInfo" {
+            
+            let infoVC = segue.destination as! ClientInfoView
+            let uid = sender as! String
+            infoVC.uid = uid
+            
+        }
+        
+        
     }
 }
 
