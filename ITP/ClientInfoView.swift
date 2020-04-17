@@ -8,26 +8,60 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ClientInfoView: UIViewController {
     
     var uid: String?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    var notesOfClient = "..."
+    
+    var noting = "..."
+    
+    func updateClientNotes() {
+        
+        let countRef =  Database.database().reference(withPath: "users").child(self.uid!).child("clientNotes")
+        
+        self.notesOfClient = clientNotes.text
+        
+        countRef.setValue(self.notesOfClient)
+        
+        countRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let notesClient = snapshot.value as? String
+            
+            self.noting = notesClient!
+            
+            print(self.noting)
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var clientNotes: UITextView!
+    
+    @IBAction func saveNotes(_ sender: Any) {
+        updateClientNotes()
+        
     }
-    */
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let countRef =  Database.database().reference(withPath: "users").child(self.uid!).child("clientNotes")
+        
+        countRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let notesClient = snapshot.value as? String
+            
+            self.noting = notesClient!
+            
+            self.clientNotes.text = self.noting
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+    }
+    
 }
