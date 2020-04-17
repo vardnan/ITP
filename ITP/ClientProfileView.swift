@@ -45,6 +45,7 @@ class ClientProfileView: UIViewController {
     @IBAction func ClientToInfo(_ sender: UIButton) {
         self.performSegue(withIdentifier: "ProfileToInfo", sender: uid)
     }
+    
     @IBOutlet weak var riskLabel: UILabel!
     
     @IBAction func riskSlider(_ sender: UISlider) {
