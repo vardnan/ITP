@@ -46,6 +46,11 @@ class ClientProfileView: UIViewController {
         self.performSegue(withIdentifier: "ProfileToInfo", sender: uid)
     }
     
+    @IBAction func ClientToGoals(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ClientToGoals", sender: uid)
+    }
+    
+    
     @IBOutlet weak var riskLabel: UILabel!
     
     @IBAction func riskSlider(_ sender: UISlider) {
@@ -96,6 +101,14 @@ class ClientProfileView: UIViewController {
             let infoVC = segue.destination as! ClientInfoView
             let uid = sender as! String
             infoVC.uid = uid
+            
+        }
+        
+        else if segue.identifier == "ClientToGoals" {
+            
+            let goalsVC = segue.destination as! ClientGoalsView
+            let uid = sender as! String
+            goalsVC.uid = uid
             
         }
         

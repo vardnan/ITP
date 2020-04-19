@@ -11,6 +11,8 @@
 		430FC2D0241FAC860031D23D /* KYCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FC2CF241FAC860031D23D /* KYCView.swift */; };
 		430FC2D2241FB43B0031D23D /* KYCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FC2D1241FB43B0031D23D /* KYCCell.swift */; };
 		430FC2D4242107410031D23D /* ClientProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430FC2D3242107410031D23D /* ClientProfileView.swift */; };
+		4314EA6A244C99100088288C /* ClientGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314EA69244C99100088288C /* ClientGoalsView.swift */; };
+		4314EA6C244C992F0088288C /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314EA6B244C992F0088288C /* GoalCell.swift */; };
 		43163F10240FE8C400FBEE3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43163F0F240FE8C400FBEE3C /* AppDelegate.swift */; };
 		43163F12240FE8C400FBEE3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43163F11240FE8C400FBEE3C /* SceneDelegate.swift */; };
 		43163F14240FE8C400FBEE3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43163F13240FE8C400FBEE3C /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 		430FC2CF241FAC860031D23D /* KYCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCView.swift; sourceTree = "<group>"; };
 		430FC2D1241FB43B0031D23D /* KYCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCCell.swift; sourceTree = "<group>"; };
 		430FC2D3242107410031D23D /* ClientProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProfileView.swift; sourceTree = "<group>"; };
+		4314EA69244C99100088288C /* ClientGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGoalsView.swift; sourceTree = "<group>"; };
+		4314EA6B244C992F0088288C /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		43163F0C240FE8C400FBEE3C /* ITP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43163F0F240FE8C400FBEE3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43163F11240FE8C400FBEE3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				43163F2B24101A4A00FBEE3C /* Main.storyboard */,
+				4314EA69244C99100088288C /* ClientGoalsView.swift */,
 				43E2AF20244A13750010334C /* ClientInfoView.swift */,
 				436AF8972440E6B3003ECA31 /* NotificationCell.swift */,
 				43F92683243F926300CDE5BD /* MarketView.swift */,
@@ -124,6 +129,7 @@
 				435C31C62444EF6000CFCDC3 /* PinCode.swift */,
 				43B7780024463B43001211A2 /* SettingsView.swift */,
 				43E2AF1E244A0E240010334C /* Assets.xcassets */,
+				4314EA6B244C992F0088288C /* GoalCell.swift */,
 			);
 			path = ITP;
 			sourceTree = "<group>";
@@ -260,8 +266,10 @@
 				43163F14240FE8C400FBEE3C /* ViewController.swift in Sources */,
 				430FC2D0241FAC860031D23D /* KYCView.swift in Sources */,
 				43C3A6152412BB7100A80517 /* TodoCell.swift in Sources */,
+				4314EA6A244C99100088288C /* ClientGoalsView.swift in Sources */,
 				435C31C52444DE1300CFCDC3 /* LoginView.swift in Sources */,
 				43B7780124463B43001211A2 /* SettingsView.swift in Sources */,
+				4314EA6C244C992F0088288C /* GoalCell.swift in Sources */,
 				43E2AF21244A13750010334C /* ClientInfoView.swift in Sources */,
 				43163F10240FE8C400FBEE3C /* AppDelegate.swift in Sources */,
 				43C3A6132412B4F400A80517 /* TodoView.swift in Sources */,

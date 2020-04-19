@@ -540,6 +540,9 @@
                                 <state key="normal" image="smallrectangle">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
+                                <connections>
+                                    <action selector="ClientToGoals:" destination="KM7-Df-6P7" eventType="touchUpInside" id="ZPy-Vd-cyP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q81-pA-IMB">
                                 <rect key="frame" x="16" y="490" width="162" height="155"/>
@@ -693,6 +696,7 @@
                         <outlet property="sliderRisk" destination="mB7-23-Pda" id="FmT-RS-N6B"/>
                         <segue destination="Bbe-H2-PXb" kind="show" identifier="ClientToKYC" id="DR9-lw-6bQ"/>
                         <segue destination="YLj-tk-Urb" kind="show" identifier="ProfileToInfo" id="ld2-Ul-p6h"/>
+                        <segue destination="bbj-BU-rR8" kind="show" identifier="ClientToGoals" id="nVr-Zy-R0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dh8-29-GjN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -915,6 +919,77 @@ United Kingdom, London</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0u-ns-dxs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2053.5999999999999" y="903.69458128078827"/>
+        </scene>
+        <!--Client Goals View-->
+        <scene sceneID="CcM-zH-VIa">
+            <objects>
+                <viewController id="bbj-BU-rR8" customClass="ClientGoalsView" customModule="ITP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lx2-bU-Mxd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4pK-mv-dVW">
+                                <rect key="frame" x="0.0" y="52" width="375" height="599"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="goalCell" id="q9I-RH-0my" customClass="GoalCell" customModule="ITP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9I-RH-0my" id="lzX-ym-i71">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Wm-BH-C39">
+                                                    <rect key="frame" x="15" y="2" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="ubj-Cs-K5z"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxa-Pg-mRr">
+                                                    <rect key="frame" x="72" y="2" width="277" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="277" id="doD-60-Ude"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Wm-BH-C39" firstAttribute="bottom" secondItem="uxa-Pg-mRr" secondAttribute="bottom" id="JxW-xK-BjE"/>
+                                                <constraint firstItem="3Wm-BH-C39" firstAttribute="leading" secondItem="lzX-ym-i71" secondAttribute="leadingMargin" id="LPm-Vm-FWN"/>
+                                                <constraint firstItem="uxa-Pg-mRr" firstAttribute="leading" secondItem="3Wm-BH-C39" secondAttribute="trailing" constant="31" id="nzT-uW-n5y"/>
+                                                <constraint firstItem="3Wm-BH-C39" firstAttribute="top" secondItem="uxa-Pg-mRr" secondAttribute="top" id="oXa-vM-5nR"/>
+                                                <constraint firstItem="3Wm-BH-C39" firstAttribute="centerY" secondItem="lzX-ym-i71" secondAttribute="centerY" id="soe-WA-8w4"/>
+                                                <constraint firstItem="3Wm-BH-C39" firstAttribute="top" secondItem="lzX-ym-i71" secondAttribute="topMargin" constant="-9" id="wq9-FR-veo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkMarkImage" destination="3Wm-BH-C39" id="iNb-vB-Bet"/>
+                                            <outlet property="goalLabel" destination="uxa-Pg-mRr" id="ie2-yd-Tiv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="9rv-ZV-RoB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="46p-ki-WHC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tJc-7T-VCL">
+                            <connections>
+                                <action selector="addGoals:" destination="bbj-BU-rR8" id="hN2-hL-JgF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="goalsTV" destination="4pK-mv-dVW" id="ktW-Uf-del"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8h-4j-Hyf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2933.5999999999999" y="903.69458128078827"/>
         </scene>
         <!--View-->
         <scene sceneID="a2a-Jp-aYL">

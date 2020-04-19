@@ -32,7 +32,6 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         todoTV.rowHeight = 80
         loadTodos()
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,11 +40,6 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             navigationController?.navigationBar.setNeedsLayout()
         }
     } 
-    
-    /*@IBAction func logoutAction(_ sender: Any) {
-        try! Auth.auth().signOut()
-        self.dismiss(animated: true, completion: nil)
-    } */
     
     @IBAction func addTodo(_ sender: Any) {
         let todoAlert = UIAlertController(title: "New Todo", message: "Add a todo", preferredStyle: .alert)
