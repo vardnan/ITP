@@ -10,14 +10,16 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+
+
 struct Todo {
     var isChecked: Bool
     var todoName: String
 }
 
 class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-  
+    
+    
     @IBOutlet weak var todoTV: UITableView!
     
     var todos: [Todo] = []
@@ -31,7 +33,7 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         todoTV.dataSource = self
         todoTV.rowHeight = 80
         loadTodos()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,12 +85,12 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
-       }
-       
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
         
         cell.todoLabel.text = todos[indexPath.row].todoName
@@ -102,7 +104,7 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return cell
         
-       }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -130,5 +132,5 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             todoTV.reloadData()
         }
     }
-
+    
 }
