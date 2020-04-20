@@ -50,6 +50,10 @@ class ClientProfileView: UIViewController {
         self.performSegue(withIdentifier: "ClientToGoals", sender: uid)
     }
     
+    @IBAction func ClientToInvestments(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ClientToInvestments", sender: uid)
+    }
+    
     
     @IBOutlet weak var riskLabel: UILabel!
     
@@ -111,6 +115,14 @@ class ClientProfileView: UIViewController {
             goalsVC.uid = uid
             
         }
+        
+        else if segue.identifier == "ClientToInvestments" {
+                   
+                   let investmentsVC = segue.destination as! InvestmentView
+                   let uid = sender as! String
+                   investmentsVC.uid = uid
+                   
+               }
         
         
     }

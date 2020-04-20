@@ -69,7 +69,7 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
                 let goalRef = ref.child(goalName)
                 
                 goalRef.observeSingleEvent(of: .value) { (goalSnapshot) in
-        
+                    
                     let value = goalSnapshot.value as? NSDictionary
                     let isChecked = value!["isChecked"] as? Bool
                     self.goals.append(Goal(isChecked: isChecked!, goalName: goalName))
