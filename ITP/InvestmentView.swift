@@ -25,6 +25,8 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var searchItems = [Investment]()
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,15 +65,37 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return investments.count
+        if searching {
+            return searchItems.count
+        }
+        else {
+           return investments.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "investmentsCell") as! InvestmentsCell
         
-        cell.investmentsLabel.text = investments[indexPath.row].investmentsName
+        if searching {
+            cell.investmentsLabel.text = searchItems[indexPath.row].investmentsName
+        }
+        else {
+            cell.investmentsLabel.text = investments[indexPath.row].investmentsName
+        }
         
         return cell
         
+    }
+}
+
+extension InvestmentView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let ref = Database.database().reference(withPath: "users").child(uid!).child("securities")
+
+        
+        searchItems = investments.filter({$0.investmentsName.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        investmentsTV.reloadData()
     }
 }
