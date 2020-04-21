@@ -20,6 +20,7 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
     var uid: String?
     var investments: [Investment] = []
     
+    @IBOutlet weak var security: UILabel!
     
     @IBOutlet weak var investmentsTV: UITableView!
     
@@ -86,13 +87,19 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let row = indexPath.row
+        print("Row: \(row)")
+        
+        performSegue(withIdentifier: "InvestmentsToSecurityPop", sender: self)
+    }
 }
 
 extension InvestmentView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        let ref = Database.database().reference(withPath: "users").child(uid!).child("securities")
-
         
         searchItems = investments.filter({$0.investmentsName.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
