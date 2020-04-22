@@ -1053,7 +1053,7 @@ United Kingdom, London</string>
                     <connections>
                         <outlet property="investmentsTV" destination="ZXG-Nw-Pgt" id="POQ-rE-Mww"/>
                         <outlet property="searchBar" destination="yWy-bQ-XOi" id="MwA-hZ-uwy"/>
-                        <segue destination="IjR-UM-9fO" kind="show" identifier="InvestmentsToSecurityPop" id="kEL-YM-sUQ"/>
+                        <segue destination="IjR-UM-9fO" kind="presentation" identifier="InvestmentsToSecurityPop" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="kEL-YM-sUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9k-ZM-sBv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1063,24 +1063,47 @@ United Kingdom, London</string>
         <!--Security Pop Up-->
         <scene sceneID="UCy-Xr-Mmw">
             <objects>
-                <viewController id="IjR-UM-9fO" customClass="securityPopUp" customModule="ITP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="IjR-UM-9fO" customClass="securityPopUp" customModule="ITP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNr-9F-Y9d">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="702"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnJ-1u-yVT">
-                                <rect key="frame" x="16" y="28" width="329" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beM-Vl-Pfd">
+                                <rect key="frame" x="32" y="279.66666666666669" width="311" height="199"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxf-Qa-Ztz">
+                                        <rect key="frame" x="275" y="8" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="xmark.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="closePopUp:" destination="IjR-UM-9fO" eventType="touchUpInside" id="ohC-eJ-Afd"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnJ-1u-yVT">
+                                        <rect key="frame" x="12" y="33" width="287" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.16078431369999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="TG9-Zf-Ejr"/>
+                                    <constraint firstAttribute="height" constant="199" id="nF4-b3-GA1"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="beM-Vl-Pfd" firstAttribute="centerY" secondItem="SNr-9F-Y9d" secondAttribute="centerY" id="Qtg-8R-71y"/>
+                            <constraint firstItem="beM-Vl-Pfd" firstAttribute="centerX" secondItem="SNr-9F-Y9d" secondAttribute="centerX" id="YcK-rk-3H7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nRH-UC-PGg"/>
                     </view>
                     <navigationItem key="navigationItem" id="rB5-5I-DPT"/>
                     <connections>
+                        <outlet property="popUpView" destination="beM-Vl-Pfd" id="cwc-1w-X4h"/>
                         <outlet property="securityLabel" destination="bnJ-1u-yVT" id="ZXF-dS-GXF"/>
                     </connections>
                 </viewController>

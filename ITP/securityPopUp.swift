@@ -12,12 +12,20 @@ class securityPopUp: UIViewController {
 
     @IBOutlet weak var securityLabel: UILabel!
     
+    @IBOutlet weak var popUpView: UIView!
+    
+    @IBAction func closePopUp(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     var securityDetail = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         securityLabel.text = securityDetail
+        popUpView.layer.cornerRadius = 10
     }
 
 }
