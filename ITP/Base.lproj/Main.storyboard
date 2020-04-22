@@ -1060,21 +1060,33 @@ United Kingdom, London</string>
             </objects>
             <point key="canvasLocation" x="3727.1999999999998" y="910.34482758620697"/>
         </scene>
-        <!--View Controller-->
+        <!--Security Pop Up-->
         <scene sceneID="UCy-Xr-Mmw">
             <objects>
-                <viewController id="IjR-UM-9fO" sceneMemberID="viewController">
+                <viewController id="IjR-UM-9fO" customClass="securityPopUp" customModule="ITP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNr-9F-Y9d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="702"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnJ-1u-yVT">
+                                <rect key="frame" x="16" y="28" width="329" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nRH-UC-PGg"/>
                     </view>
                     <navigationItem key="navigationItem" id="rB5-5I-DPT"/>
+                    <connections>
+                        <outlet property="securityLabel" destination="bnJ-1u-yVT" id="ZXF-dS-GXF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKP-Py-ubc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="917"/>
+            <point key="canvasLocation" x="4560.8000000000002" y="916.99507389162568"/>
         </scene>
         <!--View-->
         <scene sceneID="a2a-Jp-aYL">

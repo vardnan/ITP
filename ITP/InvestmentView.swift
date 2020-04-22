@@ -19,8 +19,8 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var uid: String?
     var investments: [Investment] = []
+    var securityDetail = " "
     
-    @IBOutlet weak var security: UILabel!
     
     @IBOutlet weak var investmentsTV: UITableView!
     
@@ -50,8 +50,6 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 let investmentsRef = ref.child(investmentsName)
                 investmentsRef.observeSingleEvent(of: .value) { (investmentsSnapshot) in
-                    
-                    let value = investmentsSnapshot.value as? NSDictionary
                     self.investments.append(Investment (investmentsName: investmentsName))
                     self.investmentsTV.reloadData()
                 }
@@ -94,8 +92,14 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
         let row = indexPath.row
         print("Row: \(row)")
         
+        self.securityDetail = investments[indexPath.row].investmentsName
+        
         performSegue(withIdentifier: "InvestmentsToSecurityPop", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let securityVC = segue.destination as! securityPopUp
+        securityVC.securityDetail =  self.securityDetail   }
 }
 
 extension InvestmentView: UISearchBarDelegate {
