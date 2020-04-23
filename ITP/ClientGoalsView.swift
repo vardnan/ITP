@@ -15,6 +15,14 @@ struct Goal {
     var goalName: String
 }
 
+struct Client {
+    var id: Int
+    var Name: String
+}
+
+let clients = [Client(id: 123, Name: "Arish"), Client(id: 1234, Name: "Ali")]
+
+
 class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var goalsTV: UITableView!
@@ -28,6 +36,17 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
         goalsTV.delegate = self
         goalsTV.dataSource = self
         goalsTV.rowHeight = 80
+        
+        for client in clients {
+            
+            if client.id == 123 {
+                print(client.Name)
+            }
+            
+            else if client.id == 1234 {
+                print(client.Name)
+            }
+        }
         
         loadGoals()
         

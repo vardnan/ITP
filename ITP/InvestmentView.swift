@@ -14,12 +14,16 @@ struct Investment {
     var investmentsName: String
 }
 
+
+
 class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var uid: String?
     var investments: [Investment] = []
+    var securityCodes: [String] = []
     var securityDetail = " "
+    var securityCode = " "
     
     
     @IBOutlet weak var investmentsTV: UITableView!
@@ -36,6 +40,7 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
         investmentsTV.dataSource = self
         investmentsTV.rowHeight = 80
         
+        
         loadInvestments()
         
     }
@@ -44,20 +49,29 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let ref = Database.database().reference(withPath: "users").child(uid!).child("securities")
         
+        
         ref.observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 let investmentsName = child.key
-                
+                let securityCode = child.key
+                let securityRef = ref.child(securityCode)
+                securityRef.observeSingleEvent(of: .value) { (securitySnapshot) in
+                    for child in securitySnapshot.children.allObjects as! [DataSnapshot] {
+                        self.securityCodes.append(child.value as! String)
+                    }
+                }
                 let investmentsRef = ref.child(investmentsName)
                 investmentsRef.observeSingleEvent(of: .value) { (investmentsSnapshot) in
                     self.investments.append(Investment (investmentsName: investmentsName))
+                    
+                    
                     self.investmentsTV.reloadData()
                 }
+                
             }
         }
+        
     }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -68,7 +82,7 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
             return searchItems.count
         }
         else {
-           return investments.count
+            return investments.count
         }
     }
     
@@ -93,13 +107,16 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("Row: \(row)")
         
         self.securityDetail = investments[indexPath.row].investmentsName
+        self.securityCode = securityCodes[indexPath.row]
         
         performSegue(withIdentifier: "InvestmentsToSecurityPop", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let securityVC = segue.destination as! securityPopUp
-        securityVC.securityDetail =  self.securityDetail   }
+        securityVC.securityDetail =  self.securityDetail
+        securityVC.securityCode = self.securityCode
+    }
 }
 
 extension InvestmentView: UISearchBarDelegate {

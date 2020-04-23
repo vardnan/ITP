@@ -12,6 +12,8 @@ class securityPopUp: UIViewController {
 
     @IBOutlet weak var securityLabel: UILabel!
     
+    @IBOutlet weak var securityCodeLabel: UILabel!
+    
     @IBOutlet weak var popUpView: UIView!
     
     @IBAction func closePopUp(_ sender: UIButton) {
@@ -20,11 +22,13 @@ class securityPopUp: UIViewController {
     
     
     var securityDetail = ""
+    var securityCode = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         securityLabel.text = securityDetail
+        securityCodeLabel.text = securityCode
         popUpView.layer.cornerRadius = 10
     }
 
