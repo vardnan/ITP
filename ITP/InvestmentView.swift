@@ -45,7 +45,7 @@ class InvestmentView: UIViewController, UITableViewDelegate, UITableViewDataSour
             loadInvestmentsForLucaClark()
         }
         else if clientID == "182969" {
-           loadInvestmentsForSentayhnuYaseen()
+            loadInvestmentsForSentayhnuYaseen()
         }
         
     }

@@ -39,6 +39,8 @@ class ClientPop: UIViewController {
             let ClarkLucaProfileVC = segue.destination as! ClientProfileView
             let uid = sender as! String
             ClarkLucaProfileVC.uid = uid
+            ClarkLucaProfileVC.clientID = "257862"
+            
             
         }
         

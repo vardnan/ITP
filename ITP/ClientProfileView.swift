@@ -115,7 +115,7 @@ class ClientProfileView: UIViewController {
             let goalsVC = segue.destination as! ClientGoalsView
             let uid = sender as! String
             goalsVC.uid = uid
-            
+            goalsVC.clientID = self.clientID
         }
             
         else if segue.identifier == "ClientToInvestments" {
@@ -126,8 +126,6 @@ class ClientProfileView: UIViewController {
             investmentsVC.clientID = self.clientID
             
         }
-        
-        
     }
 }
 
