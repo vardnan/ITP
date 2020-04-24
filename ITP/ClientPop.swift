@@ -21,10 +21,17 @@ class ClientPop: UIViewController {
     }
     
     @IBAction func ClarkLucaPressed(_ sender: UIButton) {
-         self.performSegue(withIdentifier: "ClarkLucaToProfile", sender: uid)
+        self.performSegue(withIdentifier: "ClarkLucaToProfile", sender: uid)
     }
     
-       
+    @IBAction func GonzalezClaroPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "GonzalezClaroToProfile", sender: uid)
+    }
+    @IBAction func SentayhnuYaseenPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SentayhnuYaseenToProfile", sender: uid)
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ClarkLucaToProfile" {
@@ -32,6 +39,26 @@ class ClientPop: UIViewController {
             let ClarkLucaProfileVC = segue.destination as! ClientProfileView
             let uid = sender as! String
             ClarkLucaProfileVC.uid = uid
+            ClarkLucaProfileVC.clientID = "257862"
+            
+            
+        }
+        
+        if segue.identifier == "GonzalezClaroToProfile" {
+            
+            let GonzalezClaroVC = segue.destination as! ClientProfileView
+            let uid = sender as! String
+            GonzalezClaroVC.uid = uid
+            GonzalezClaroVC.clientID = "538003"
+            
+        }
+        
+        if segue.identifier == "SentayhnuYaseenToProfile" {
+            
+            let SentayhnuYaseenVC = segue.destination as! ClientProfileView
+            let uid = sender as! String
+            SentayhnuYaseenVC.uid = uid
+            SentayhnuYaseenVC.clientID = "182969"
             
         }
     }

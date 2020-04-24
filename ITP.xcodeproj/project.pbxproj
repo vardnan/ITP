@@ -18,6 +18,7 @@
 		43163F14240FE8C400FBEE3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43163F13240FE8C400FBEE3C /* ViewController.swift */; };
 		43163F1C240FE8CD00FBEE3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43163F1A240FE8CD00FBEE3C /* LaunchScreen.storyboard */; };
 		43163F2D24101A4A00FBEE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43163F2B24101A4A00FBEE3C /* Main.storyboard */; };
+		431F7B6C244F839B004DA92F /* securityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F7B6B244F839B004DA92F /* securityPopUp.swift */; };
 		435C31C52444DE1300CFCDC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C42444DE1300CFCDC3 /* LoginView.swift */; };
 		435C31C72444EF6000CFCDC3 /* PinCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C62444EF6000CFCDC3 /* PinCode.swift */; };
 		436AF8962440E1DD003ECA31 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8952440E1DD003ECA31 /* NotificationView.swift */; };
@@ -30,6 +31,8 @@
 		43C3A6152412BB7100A80517 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C3A6142412BB7100A80517 /* TodoCell.swift */; };
 		43E2AF1F244A0E240010334C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E2AF1E244A0E240010334C /* Assets.xcassets */; };
 		43E2AF21244A13750010334C /* ClientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2AF20244A13750010334C /* ClientInfoView.swift */; };
+		43EC9A71244DCCF700DAD4BA /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC9A70244DCCF700DAD4BA /* InvestmentView.swift */; };
+		43EC9A73244DE5DA00DAD4BA /* InvestmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC9A72244DE5DA00DAD4BA /* InvestmentsCell.swift */; };
 		43F92684243F926400CDE5BD /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F92683243F926300CDE5BD /* MarketView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,7 @@
 		43163F13240FE8C400FBEE3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43163F1B240FE8CD00FBEE3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43163F2C24101A4A00FBEE3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		431F7B6B244F839B004DA92F /* securityPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securityPopUp.swift; sourceTree = "<group>"; };
 		435C31C42444DE1300CFCDC3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		435C31C62444EF6000CFCDC3 /* PinCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCode.swift; sourceTree = "<group>"; };
 		436AF8952440E1DD003ECA31 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		43C3A6142412BB7100A80517 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		43E2AF1E244A0E240010334C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43E2AF20244A13750010334C /* ClientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientInfoView.swift; sourceTree = "<group>"; };
+		43EC9A70244DCCF700DAD4BA /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
+		43EC9A72244DE5DA00DAD4BA /* InvestmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsCell.swift; sourceTree = "<group>"; };
 		43F92683243F926300CDE5BD /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		C23AD38A4B7D68136F35B32B /* Pods_ITP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				43163F2B24101A4A00FBEE3C /* Main.storyboard */,
+				43EC9A72244DE5DA00DAD4BA /* InvestmentsCell.swift */,
+				43EC9A70244DCCF700DAD4BA /* InvestmentView.swift */,
+				431F7B6B244F839B004DA92F /* securityPopUp.swift */,
 				4314EA69244C99100088288C /* ClientGoalsView.swift */,
 				43E2AF20244A13750010334C /* ClientInfoView.swift */,
 				436AF8972440E6B3003ECA31 /* NotificationCell.swift */,
@@ -262,6 +271,7 @@
 				4374868C241D09C4001F35C1 /* HomeScreen_ViewController.swift in Sources */,
 				430FC2D4242107410031D23D /* ClientProfileView.swift in Sources */,
 				43733242243D038600B0F527 /* ClientPop.swift in Sources */,
+				43EC9A73244DE5DA00DAD4BA /* InvestmentsCell.swift in Sources */,
 				436AF8982440E6B3003ECA31 /* NotificationCell.swift in Sources */,
 				43163F14240FE8C400FBEE3C /* ViewController.swift in Sources */,
 				430FC2D0241FAC860031D23D /* KYCView.swift in Sources */,
@@ -269,9 +279,11 @@
 				4314EA6A244C99100088288C /* ClientGoalsView.swift in Sources */,
 				435C31C52444DE1300CFCDC3 /* LoginView.swift in Sources */,
 				43B7780124463B43001211A2 /* SettingsView.swift in Sources */,
+				43EC9A71244DCCF700DAD4BA /* InvestmentView.swift in Sources */,
 				4314EA6C244C992F0088288C /* GoalCell.swift in Sources */,
 				43E2AF21244A13750010334C /* ClientInfoView.swift in Sources */,
 				43163F10240FE8C400FBEE3C /* AppDelegate.swift in Sources */,
+				431F7B6C244F839B004DA92F /* securityPopUp.swift in Sources */,
 				43C3A6132412B4F400A80517 /* TodoView.swift in Sources */,
 				43163F12240FE8C400FBEE3C /* SceneDelegate.swift in Sources */,
 				430FC2D2241FB43B0031D23D /* KYCCell.swift in Sources */,

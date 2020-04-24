@@ -75,6 +75,7 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let value = todoSnapshot.value as? NSDictionary
                     let isChecked = value!["isChecked"] as? Bool
                     self.todos.append(Todo(isChecked: isChecked!, todoName: todoName))
+                    print(self.todos.count)
                     self.todoTV.reloadData()
                 }
             }
