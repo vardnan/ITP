@@ -480,6 +480,9 @@
                                 <state key="normal" title="Claro González">
                                     <color key="titleColor" red="0.992675364" green="0.99597948790000002" blue="0.99583238360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="GonzalezClaroPressed:" destination="sjT-ST-ngt" eventType="touchUpInside" id="hka-PA-Kgu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwN-aZ-IDy">
                                 <rect key="frame" x="87" y="346" width="206" height="37"/>
@@ -488,6 +491,9 @@
                                 <state key="normal" title="Yaseen Sentayhnu">
                                     <color key="titleColor" red="0.992675364" green="0.99597948790000002" blue="0.99583238360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="SentayhnuYaseenPressed:" destination="sjT-ST-ngt" eventType="touchUpInside" id="nsi-JV-J8a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-YE-zGn">
                                 <rect key="frame" x="105" y="416" width="182" height="37"/>
@@ -508,6 +514,8 @@
                     <navigationItem key="navigationItem" id="l0t-hl-Oov"/>
                     <connections>
                         <segue destination="KM7-Df-6P7" kind="show" identifier="ClarkLucaToProfile" id="hk6-Hp-Tyd"/>
+                        <segue destination="KM7-Df-6P7" kind="show" identifier="GonzalezClaroToProfile" id="rcl-du-PiJ"/>
+                        <segue destination="KM7-Df-6P7" kind="show" identifier="SentayhnuYaseenToProfile" id="36Y-hm-Rwu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ss3-3p-WEO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1498,6 +1506,7 @@ United Kingdom, London</string>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="36Y-hm-Rwu"/>
         <segue reference="pis-JB-znJ"/>
     </inferredMetricsTieBreakers>
 </document>

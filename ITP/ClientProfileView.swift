@@ -14,6 +14,8 @@ class ClientProfileView: UIViewController {
     
     var uid: String?
     
+    var clientID: String?
+    
     var riskValue = 0
     
     var numberRisk = 0
@@ -107,7 +109,7 @@ class ClientProfileView: UIViewController {
             infoVC.uid = uid
             
         }
-        
+            
         else if segue.identifier == "ClientToGoals" {
             
             let goalsVC = segue.destination as! ClientGoalsView
@@ -115,14 +117,15 @@ class ClientProfileView: UIViewController {
             goalsVC.uid = uid
             
         }
-        
+            
         else if segue.identifier == "ClientToInvestments" {
-                   
-                   let investmentsVC = segue.destination as! InvestmentView
-                   let uid = sender as! String
-                   investmentsVC.uid = uid
-                   
-               }
+            
+            let investmentsVC = segue.destination as! InvestmentView
+            let uid = sender as! String
+            investmentsVC.uid = uid
+            investmentsVC.clientID = self.clientID
+            
+        }
         
         
     }
