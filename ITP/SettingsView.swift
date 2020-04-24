@@ -80,8 +80,7 @@ extension SettingsView: MFMailComposeViewControllerDelegate {
         case .sent:
             print("Email sent")
             
+            controller.dismiss(animated: true)
         }
-        
-        controller.dismiss(animated: true)
     }
 }
