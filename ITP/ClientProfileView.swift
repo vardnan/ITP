@@ -107,6 +107,7 @@ class ClientProfileView: UIViewController {
             let infoVC = segue.destination as! ClientInfoView
             let uid = sender as! String
             infoVC.uid = uid
+            infoVC.clientID = self.clientID
             
         }
             

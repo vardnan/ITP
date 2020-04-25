@@ -46,16 +46,10 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
             let goalText = goalAlert.textFields![0].text
             self.goals.append(Goal(isChecked: false, goalName: goalText!))
             
-            if self.clientID == "257862" {
-                let ref = Database.database().reference(withPath: "users").child(self.uid!).child("clients").child("257862").child("clientGoals")
-                
-                ref.child(goalText!).setValue(["isChecked": false])
-            }
-            else if self.clientID == "182969" {
-                let ref = Database.database().reference(withPath: "users").child(self.uid!).child("clients").child("182969").child("clientGoals")
-                
-                ref.child(goalText!).setValue(["isChecked": false])
-            }
+            
+            let ref = Database.database().reference(withPath: "users").child(self.uid!).child("clients").child(self.clientID!).child("clientGoals")
+            
+            ref.child(goalText!).setValue(["isChecked": false])
             
             self.goalsTV.reloadData()
         }
@@ -70,42 +64,21 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func loadGoals() {
         
-        if self.clientID == "257862" {
-            let ref = Database.database().reference(withPath: "users").child(self.uid!).child("clients").child("257862").child("clientGoals")
-            
-            ref.observeSingleEvent(of: .value) { (snapshot) in
-                for child in snapshot.children.allObjects as! [DataSnapshot] {
-                    let goalName = child.key
+        
+        let ref = Database.database().reference(withPath: "users").child(self.uid!).child("clients").child(clientID!).child("clientGoals")
+        
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                let goalName = child.key
+                
+                let goalRef = ref.child(goalName)
+                
+                goalRef.observeSingleEvent(of: .value) { (goalSnapshot) in
                     
-                    let goalRef = ref.child(goalName)
-                    
-                    goalRef.observeSingleEvent(of: .value) { (goalSnapshot) in
-                        
-                        let value = goalSnapshot.value as? NSDictionary
-                        let isChecked = value!["isChecked"] as? Bool
-                        self.goals.append(Goal(isChecked: isChecked!, goalName: goalName))
-                        self.goalsTV.reloadData()
-                    }
-                }
-            }
-        }
-            
-        else if self.clientID == "182969" {
-            let ref = Database.database().reference(withPath: "users").child(self.uid!).child("clients").child("182969").child("clientGoals")
-            
-            ref.observeSingleEvent(of: .value) { (snapshot) in
-                for child in snapshot.children.allObjects as! [DataSnapshot] {
-                    let goalName = child.key
-                    
-                    let goalRef = ref.child(goalName)
-                    
-                    goalRef.observeSingleEvent(of: .value) { (goalSnapshot) in
-                        
-                        let value = goalSnapshot.value as? NSDictionary
-                        let isChecked = value!["isChecked"] as? Bool
-                        self.goals.append(Goal(isChecked: isChecked!, goalName: goalName))
-                        self.goalsTV.reloadData()
-                    }
+                    let value = goalSnapshot.value as? NSDictionary
+                    let isChecked = value!["isChecked"] as? Bool
+                    self.goals.append(Goal(isChecked: isChecked!, goalName: goalName))
+                    self.goalsTV.reloadData()
                 }
             }
         }
@@ -138,10 +111,8 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if clientID == "257862" {
             
-            let ref = Database.database().reference(withPath: "users").child(uid!).child("clients").child("257862").child("clientGoals").child(goals[indexPath.row].goalName)
+            let ref = Database.database().reference(withPath: "users").child(uid!).child("clients").child(clientID!).child("clientGoals").child(goals[indexPath.row].goalName)
             
             if goals[indexPath.row].isChecked {
                 goals[indexPath.row].isChecked = false
@@ -154,26 +125,6 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
                 ref.updateChildValues(["isChecked": true])
                 
             }
-            
-        }
-            
-        else if clientID == "182969" {
-            
-            let ref = Database.database().reference(withPath: "users").child(uid!).child("clients").child("182969").child("clientGoals").child(goals[indexPath.row].goalName)
-            
-            if goals[indexPath.row].isChecked {
-                goals[indexPath.row].isChecked = false
-                ref.updateChildValues(["isChecked": false])
-                
-            }
-                
-            else {
-                goals[indexPath.row].isChecked = true
-                ref.updateChildValues(["isChecked": true])
-                
-            }
-            
-        }
         
         
         goalsTV.reloadData()
@@ -182,25 +133,15 @@ class ClientGoalsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            if clientID == "257862" {
-                let ref = Database.database().reference(withPath: "users").child(uid!).child("clients").child("257862").child("clientGoals").child(goals[indexPath.row].goalName)
-                
-                ref.removeValue()
-                goals.remove(at: indexPath.row)
-                
-            }
-                
-            else if clientID == "182969" {
-                let ref = Database.database().reference(withPath: "users").child(uid!).child("clients").child("182969").child("clientGoals").child(goals[indexPath.row].goalName)
-                
-                ref.removeValue()
-                goals.remove(at: indexPath.row)
-                
-            }
+            
+            let ref = Database.database().reference(withPath: "users").child(uid!).child("clients").child(clientID!).child("clientGoals").child(goals[indexPath.row].goalName)
+            
+            ref.removeValue()
+            goals.remove(at: indexPath.row)
+            
             
             goalsTV.reloadData()
         }
     }
     
 }
-
