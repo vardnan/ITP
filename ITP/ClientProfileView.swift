@@ -70,9 +70,16 @@ class ClientProfileView: UIViewController {
     
     @IBOutlet weak var sliderRisk: UISlider!
     
+    @IBOutlet weak var clientName: UILabel!
+    
+    @IBOutlet weak var clientIDLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        clientIDLabel.text = "(\(clientID!))"
+        
         
         let countRef =  Database.database().reference(withPath: "users").child(self.uid!).child("riskValue")
         
@@ -89,6 +96,17 @@ class ClientProfileView: UIViewController {
             print(error.localizedDescription)
         }
         
+        let clientNameRef =  Database.database().reference(withPath: "users").child(self.uid!).child("clients").child(clientID!).child("name")
+        
+        clientNameRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let clientName = snapshot.value as? String
+            
+            self.clientName.text = clientName!
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
     }
     
     
