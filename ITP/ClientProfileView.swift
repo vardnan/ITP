@@ -56,6 +56,11 @@ class ClientProfileView: UIViewController {
         self.performSegue(withIdentifier: "ClientToInvestments", sender: uid)
     }
     
+    @IBAction func clientAnalysisPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "showClientAnalysis", sender: uid)
+    }
+    
+    
     
     @IBOutlet weak var riskLabel: UILabel!
     
@@ -143,6 +148,15 @@ class ClientProfileView: UIViewController {
             let uid = sender as! String
             investmentsVC.uid = uid
             investmentsVC.clientID = self.clientID
+            
+        }
+        
+        else if segue.identifier == "showClientAnalysis" {
+            
+            let clientAnalysisVC = segue.destination as! MainChartView
+            let uid = sender as! String
+            clientAnalysisVC.uid = uid
+            clientAnalysisVC.clientID = self.clientID
             
         }
     }

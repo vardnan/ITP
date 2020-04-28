@@ -21,6 +21,8 @@
 		431F7B6C244F839B004DA92F /* securityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F7B6B244F839B004DA92F /* securityPopUp.swift */; };
 		435C31C52444DE1300CFCDC3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C42444DE1300CFCDC3 /* LoginView.swift */; };
 		435C31C72444EF6000CFCDC3 /* PinCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C31C62444EF6000CFCDC3 /* PinCode.swift */; };
+		4369EB102458A04800A39B3E /* ClientAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4369EB0F2458A04800A39B3E /* ClientAnalysisView.swift */; };
+		4369EB122458A88900A39B3E /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4369EB112458A88900A39B3E /* MainChartView.swift */; };
 		436AF8962440E1DD003ECA31 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8952440E1DD003ECA31 /* NotificationView.swift */; };
 		436AF8982440E6B3003ECA31 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436AF8972440E6B3003ECA31 /* NotificationCell.swift */; };
 		43733242243D038600B0F527 /* ClientPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43733241243D038600B0F527 /* ClientPop.swift */; };
@@ -53,6 +55,8 @@
 		431F7B6B244F839B004DA92F /* securityPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securityPopUp.swift; sourceTree = "<group>"; };
 		435C31C42444DE1300CFCDC3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		435C31C62444EF6000CFCDC3 /* PinCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCode.swift; sourceTree = "<group>"; };
+		4369EB0F2458A04800A39B3E /* ClientAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAnalysisView.swift; sourceTree = "<group>"; };
+		4369EB112458A88900A39B3E /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
 		436AF8952440E1DD003ECA31 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		436AF8972440E6B3003ECA31 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		43733241243D038600B0F527 /* ClientPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPop.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				43163F2B24101A4A00FBEE3C /* Main.storyboard */,
+				4369EB112458A88900A39B3E /* MainChartView.swift */,
+				4369EB0F2458A04800A39B3E /* ClientAnalysisView.swift */,
 				43EC9A72244DE5DA00DAD4BA /* InvestmentsCell.swift */,
 				43EC9A70244DCCF700DAD4BA /* InvestmentView.swift */,
 				431F7B6B244F839B004DA92F /* securityPopUp.swift */,
@@ -267,12 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4369EB122458A88900A39B3E /* MainChartView.swift in Sources */,
 				43F92684243F926400CDE5BD /* MarketView.swift in Sources */,
 				4374868C241D09C4001F35C1 /* HomeScreen_ViewController.swift in Sources */,
 				430FC2D4242107410031D23D /* ClientProfileView.swift in Sources */,
 				43733242243D038600B0F527 /* ClientPop.swift in Sources */,
 				43EC9A73244DE5DA00DAD4BA /* InvestmentsCell.swift in Sources */,
 				436AF8982440E6B3003ECA31 /* NotificationCell.swift in Sources */,
+				4369EB102458A04800A39B3E /* ClientAnalysisView.swift in Sources */,
 				43163F14240FE8C400FBEE3C /* ViewController.swift in Sources */,
 				430FC2D0241FAC860031D23D /* KYCView.swift in Sources */,
 				43C3A6152412BB7100A80517 /* TodoCell.swift in Sources */,
