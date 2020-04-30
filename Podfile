@@ -12,5 +12,4 @@ target 'ITP' do
 	pod 'Charts'
 	pod 'TinyConstraints'
 
-
 end

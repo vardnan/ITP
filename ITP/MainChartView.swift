@@ -41,13 +41,10 @@ class MainChartView: UIViewController, ChartViewDelegate {
         chartView.xAxis.labelTextColor = .white
         chartView.xAxis.axisLineColor = .white
         
-        chartView.animate(xAxisDuration: 2.5)
-        
-        
-        
+        chartView.animate(xAxisDuration: 1.5)
         
         return chartView
-    }()
+    }() 
     
     
     override func viewDidLoad() {
@@ -57,17 +54,31 @@ class MainChartView: UIViewController, ChartViewDelegate {
         lineChartView.center(in: graphView)
         lineChartView.width(to: graphView)
         lineChartView.height(to: graphView)
-        setData()
+        
+        if clientID == "182969" {
+            setDataForYaseen()
+        }
+        else if clientID == "257862" {
+            setDataForLucaClark()
+        }
+        else if clientID == "538003" {
+            setDataForCarlos()
+        }
+        else if clientID == "569988" {
+            setDataForIvan()
+        }
         
         graphView.layer.cornerRadius = 20
         graphView.layer.masksToBounds = true
+        
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
     }
     
-    func setData() {
+    
+    func setDataForLucaClark() {
         let set1 = LineChartDataSet(entries: yValues, label: nil)
         
         set1.mode = .cubicBezier
@@ -86,25 +97,102 @@ class MainChartView: UIViewController, ChartViewDelegate {
         
     }
     
-    let yValues: [ChartDataEntry] = [
+    var yValues: [ChartDataEntry] = [
         ChartDataEntry(x:0.0, y:10.0),
         ChartDataEntry(x:1.0, y:6.0),
         ChartDataEntry(x:2.0, y:8.0),
         ChartDataEntry(x:3.0, y:6.0),
         ChartDataEntry(x:4.0, y:7.0),
         ChartDataEntry(x:5.0, y:5.0),
-        ChartDataEntry(x:6.0, y:12.0),
-        ChartDataEntry(x:7.0, y:13.0),
-        ChartDataEntry(x:8.0, y:15.0),
-        ChartDataEntry(x:9.0, y:17.0),
-        ChartDataEntry(x:10.0, y:6.0),
-        ChartDataEntry(x:11.0, y:20.0),
-        ChartDataEntry(x:12.0, y:10.0),
-        ChartDataEntry(x:13.0, y:18.0),
-        ChartDataEntry(x:14.0, y:15.0),
-        ChartDataEntry(x:15.0, y:33.0),
-        ChartDataEntry(x:16.0, y:20.0)
         
     ]
+    
+    func setDataForYaseen() {
+          let set1 = LineChartDataSet(entries: yaseenValues, label: nil)
+          
+          set1.mode = .cubicBezier
+          set1.lineWidth = 2.5
+          set1.setColor(.white)
+          set1.drawCirclesEnabled = false
+          set1.fill = Fill(color: .white)
+          set1.fillAlpha = 0.8
+          set1.drawFilledEnabled = true
+          set1.highlightColor = .systemBlue
+          set1.valueTextColor = .systemBlue
+          set1.valueFont = .boldSystemFont(ofSize: 9)
+          let data = LineChartData(dataSet: set1)
+          data.setDrawValues(true)
+          lineChartView.data = data
+          
+      }
+      
+      var yaseenValues: [ChartDataEntry] = [
+          ChartDataEntry(x:0.0, y:10.0),
+          ChartDataEntry(x:1.0, y:10.0),
+          ChartDataEntry(x:2.0, y:10.0),
+          ChartDataEntry(x:3.0, y:10.0),
+          ChartDataEntry(x:4.0, y:10.0),
+          ChartDataEntry(x:5.0, y:10.0),
+          
+      ]
+    
+    func setDataForCarlos() {
+             let set1 = LineChartDataSet(entries: carlosValues, label: nil)
+             
+             set1.mode = .cubicBezier
+             set1.lineWidth = 2.5
+             set1.setColor(.white)
+             set1.drawCirclesEnabled = false
+             set1.fill = Fill(color: .white)
+             set1.fillAlpha = 0.8
+             set1.drawFilledEnabled = true
+             set1.highlightColor = .systemBlue
+             set1.valueTextColor = .systemBlue
+             set1.valueFont = .boldSystemFont(ofSize: 9)
+             let data = LineChartData(dataSet: set1)
+             data.setDrawValues(true)
+             lineChartView.data = data
+             
+         }
+         
+         var carlosValues: [ChartDataEntry] = [
+             ChartDataEntry(x:0.0, y:5.0),
+             ChartDataEntry(x:1.0, y:5.0),
+             ChartDataEntry(x:2.0, y:5.0),
+             ChartDataEntry(x:3.0, y:5.0),
+             ChartDataEntry(x:4.0, y:5.0),
+             ChartDataEntry(x:5.0, y:5.0),
+             
+         ]
+    
+    func setDataForIvan() {
+                let set1 = LineChartDataSet(entries: ivanValues, label: nil)
+                
+                set1.mode = .cubicBezier
+                set1.lineWidth = 2.5
+                set1.setColor(.white)
+                set1.drawCirclesEnabled = false
+                set1.fill = Fill(color: .white)
+                set1.fillAlpha = 0.8
+                set1.drawFilledEnabled = true
+                set1.highlightColor = .systemBlue
+                set1.valueTextColor = .systemBlue
+                set1.valueFont = .boldSystemFont(ofSize: 9)
+                let data = LineChartData(dataSet: set1)
+                data.setDrawValues(true)
+                lineChartView.data = data
+                
+            }
+            
+            var ivanValues: [ChartDataEntry] = [
+                ChartDataEntry(x:0.0, y:6.0),
+                ChartDataEntry(x:1.0, y:7.0),
+                ChartDataEntry(x:2.0, y:8.0),
+                ChartDataEntry(x:3.0, y:9.0),
+                ChartDataEntry(x:4.0, y:10.0),
+                ChartDataEntry(x:5.0, y:11.0),
+                
+            ]
+    
     
 }

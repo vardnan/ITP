@@ -570,6 +570,9 @@
                                 <state key="normal" title=" Ivan Yurkovich">
                                     <color key="titleColor" red="0.992675364" green="0.99597948790000002" blue="0.99583238360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="YurkovichIvanPressed:" destination="sjT-ST-ngt" eventType="touchUpInside" id="hEc-L7-1R9"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIconLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-Ic-faL">
                                 <rect key="frame" x="29" y="73" width="24" height="24"/>
@@ -584,6 +587,7 @@
                         <segue destination="KM7-Df-6P7" kind="show" identifier="ClarkLucaToProfile" id="hk6-Hp-Tyd"/>
                         <segue destination="KM7-Df-6P7" kind="show" identifier="GonzalezClaroToProfile" id="rcl-du-PiJ"/>
                         <segue destination="KM7-Df-6P7" kind="show" identifier="SentayhnuYaseenToProfile" id="36Y-hm-Rwu"/>
+                        <segue destination="KM7-Df-6P7" kind="show" identifier="YurkovichIvanToProfile" id="jZk-vw-4Kf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ss3-3p-WEO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1861,7 +1865,7 @@ United Kingdom, London</string>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rcl-du-PiJ"/>
+        <segue reference="jZk-vw-4Kf"/>
         <segue reference="pis-JB-znJ"/>
     </inferredMetricsTieBreakers>
 </document>
