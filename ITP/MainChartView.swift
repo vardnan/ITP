@@ -14,16 +14,27 @@ import FirebaseDatabase
 
 class MainChartView: UIViewController, ChartViewDelegate {
     
+    var uid: String?
+    var clientID: String?
+    var portValue = "100"
+    var feeCodeValue = " "
+    var portfolioFeeNum = 0.10
+    
     @IBOutlet weak var graphView: UIView!
     
     @IBOutlet weak var portfolioValue: UILabel!
     
     @IBOutlet weak var feeCode: UILabel!
     
-    var uid: String?
-    var clientID: String?
-    var portValue = " "
-    var feeCodeValue = " "
+    @IBOutlet weak var profitabilityValue: UILabel!
+    
+    @IBOutlet weak var volatilityValue: UILabel!
+    
+    @IBAction func compositionPressed(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "AnalysisToComposition", sender: uid)
+    }
+    
     
     lazy var lineChartView: LineChartView = {
         let chartView = LineChartView()
@@ -77,6 +88,19 @@ class MainChartView: UIViewController, ChartViewDelegate {
         graphView.layer.cornerRadius = 20
         graphView.layer.masksToBounds = true
         
+        let portfolioFeeRef =  Database.database().reference(withPath: "users").child(self.uid!).child("clients").child(clientID!).child("portfolioFee")
+        
+        portfolioFeeRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let feePortfolio = snapshot.value as? Double
+            
+            self.portfolioFeeNum = feePortfolio!
+            
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+    
         let countRef =  Database.database().reference(withPath: "users").child(self.uid!).child("clients").child(clientID!).child("initialPortfolioValue")
         
         countRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -86,6 +110,8 @@ class MainChartView: UIViewController, ChartViewDelegate {
             self.portValue = portosValue!
             
             self.portfolioValue.text = self.portValue
+            
+            self.profitabilityValue.text = String(Int((Double(self.portValue)!/5)*Double(self.portfolioFeeNum)))
             
         }) {(error) in
             print(error.localizedDescription)
@@ -105,132 +131,153 @@ class MainChartView: UIViewController, ChartViewDelegate {
             print(error.localizedDescription)
         }
         
+        let volatilityRef =  Database.database().reference(withPath: "users").child(self.uid!).child("clients").child(clientID!).child("portfolioVolatility")
+        
+        volatilityRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let volatileValue = snapshot.value as? String
+            
+            self.volatilityValue.text = volatileValue!
+            
+        }) {(error) in
+            print(error.localizedDescription)
+        }
     }
     
-
-
-
-
-func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-    print(entry)
-}
-
-
-func setDataForLucaClark() {
-    let set1 = LineChartDataSet(entries: yValues, label: nil)
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(entry)
+    }
     
-    set1.mode = .cubicBezier
-    set1.lineWidth = 2.5
-    set1.setColor(.white)
-    set1.drawCirclesEnabled = false
-    set1.fill = Fill(color: .white)
-    set1.fillAlpha = 0.8
-    set1.drawFilledEnabled = true
-    set1.highlightColor = .systemBlue
-    set1.valueTextColor = .systemBlue
-    set1.valueFont = .boldSystemFont(ofSize: 9)
-    let data = LineChartData(dataSet: set1)
-    data.setDrawValues(true)
-    lineChartView.data = data
     
-}
-
-var yValues: [ChartDataEntry] = [
-    ChartDataEntry(x:0, y:80.191),
-    ChartDataEntry(x:1, y:80.199),
-    ChartDataEntry(x:2, y:80.291),
-    ChartDataEntry(x:3, y:80.296),
-    ChartDataEntry(x:4, y:80.396),
-    ChartDataEntry(x:5, y:80.386),
+    func setDataForLucaClark() {
+        let set1 = LineChartDataSet(entries: yValues, label: nil)
+        
+        set1.mode = .cubicBezier
+        set1.lineWidth = 2.5
+        set1.setColor(.white)
+        set1.drawCirclesEnabled = false
+        set1.fill = Fill(color: .white)
+        set1.fillAlpha = 0.8
+        set1.drawFilledEnabled = true
+        set1.highlightColor = .systemBlue
+        set1.valueTextColor = .systemBlue
+        set1.valueFont = .boldSystemFont(ofSize: 9)
+        let data = LineChartData(dataSet: set1)
+        data.setDrawValues(true)
+        lineChartView.data = data
+        
+    }
     
-]
-
-func setDataForYaseen() {
-    let set1 = LineChartDataSet(entries: yaseenValues, label: nil)
+    var yValues: [ChartDataEntry] = [
+        ChartDataEntry(x:0, y:80.191),
+        ChartDataEntry(x:1, y:80.199),
+        ChartDataEntry(x:2, y:80.291),
+        ChartDataEntry(x:3, y:80.296),
+        ChartDataEntry(x:4, y:80.396),
+        ChartDataEntry(x:5, y:80.386),
+        
+    ]
     
-    set1.mode = .cubicBezier
-    set1.lineWidth = 2.5
-    set1.setColor(.white)
-    set1.drawCirclesEnabled = false
-    set1.fill = Fill(color: .white)
-    set1.fillAlpha = 0.8
-    set1.drawFilledEnabled = true
-    set1.highlightColor = .systemBlue
-    set1.valueTextColor = .systemBlue
-    set1.valueFont = .boldSystemFont(ofSize: 9)
-    let data = LineChartData(dataSet: set1)
-    data.setDrawValues(true)
-    lineChartView.data = data
+    func setDataForYaseen() {
+        let set1 = LineChartDataSet(entries: yaseenValues, label: nil)
+        
+        set1.mode = .cubicBezier
+        set1.lineWidth = 2.5
+        set1.setColor(.white)
+        set1.drawCirclesEnabled = false
+        set1.fill = Fill(color: .white)
+        set1.fillAlpha = 0.8
+        set1.drawFilledEnabled = true
+        set1.highlightColor = .systemBlue
+        set1.valueTextColor = .systemBlue
+        set1.valueFont = .boldSystemFont(ofSize: 9)
+        let data = LineChartData(dataSet: set1)
+        data.setDrawValues(true)
+        lineChartView.data = data
+        
+    }
     
-}
-
-var yaseenValues: [ChartDataEntry] = [
-    ChartDataEntry(x:0, y:40.010),
-    ChartDataEntry(x:1, y:40.500),
-    ChartDataEntry(x:2, y:40.430),
-    ChartDataEntry(x:3, y:40.300),
-    ChartDataEntry(x:4, y:40.190),
-    ChartDataEntry(x:5, y:40.231),
+    var yaseenValues: [ChartDataEntry] = [
+        ChartDataEntry(x:0, y:40.010),
+        ChartDataEntry(x:1, y:40.500),
+        ChartDataEntry(x:2, y:40.430),
+        ChartDataEntry(x:3, y:40.300),
+        ChartDataEntry(x:4, y:40.190),
+        ChartDataEntry(x:5, y:40.231),
+        
+    ]
     
-]
-
-func setDataForCarlos() {
-    let set1 = LineChartDataSet(entries: carlosValues, label: nil)
+    func setDataForCarlos() {
+        let set1 = LineChartDataSet(entries: carlosValues, label: nil)
+        
+        set1.mode = .cubicBezier
+        set1.lineWidth = 2.5
+        set1.setColor(.white)
+        set1.drawCirclesEnabled = false
+        set1.fill = Fill(color: .white)
+        set1.fillAlpha = 0.8
+        set1.drawFilledEnabled = true
+        set1.highlightColor = .systemBlue
+        set1.valueTextColor = .systemBlue
+        set1.valueFont = .boldSystemFont(ofSize: 9)
+        let data = LineChartData(dataSet: set1)
+        data.setDrawValues(true)
+        lineChartView.data = data
+        
+    }
     
-    set1.mode = .cubicBezier
-    set1.lineWidth = 2.5
-    set1.setColor(.white)
-    set1.drawCirclesEnabled = false
-    set1.fill = Fill(color: .white)
-    set1.fillAlpha = 0.8
-    set1.drawFilledEnabled = true
-    set1.highlightColor = .systemBlue
-    set1.valueTextColor = .systemBlue
-    set1.valueFont = .boldSystemFont(ofSize: 9)
-    let data = LineChartData(dataSet: set1)
-    data.setDrawValues(true)
-    lineChartView.data = data
+    var carlosValues: [ChartDataEntry] = [
+        ChartDataEntry(x:0, y:43.192),
+        ChartDataEntry(x:1, y:43.199),
+        ChartDataEntry(x:2, y:43.196),
+        ChartDataEntry(x:3, y:43.200),
+        ChartDataEntry(x:4, y:43.203),
+        ChartDataEntry(x:5, y:43.204),
+        
+    ]
     
-}
-
-var carlosValues: [ChartDataEntry] = [
-    ChartDataEntry(x:0, y:43.192),
-    ChartDataEntry(x:1, y:43.199),
-    ChartDataEntry(x:2, y:43.196),
-    ChartDataEntry(x:3, y:43.200),
-    ChartDataEntry(x:4, y:43.203),
-    ChartDataEntry(x:5, y:43.204),
+    func setDataForIvan() {
+        let set1 = LineChartDataSet(entries: ivanValues, label: nil)
+        
+        set1.mode = .cubicBezier
+        set1.lineWidth = 2.5
+        set1.setColor(.white)
+        set1.drawCirclesEnabled = false
+        set1.fill = Fill(color: .white)
+        set1.fillAlpha = 0.8
+        set1.drawFilledEnabled = true
+        set1.highlightColor = .systemBlue
+        set1.valueTextColor = .systemBlue
+        set1.valueFont = .boldSystemFont(ofSize: 9)
+        let data = LineChartData(dataSet: set1)
+        data.setDrawValues(true)
+        lineChartView.data = data
+        
+    }
     
-]
-
-func setDataForIvan() {
-    let set1 = LineChartDataSet(entries: ivanValues, label: nil)
+    var ivanValues: [ChartDataEntry] = [
+        ChartDataEntry(x:0, y:73.817),
+        ChartDataEntry(x:1, y:73.816),
+        ChartDataEntry(x:2, y:73.819),
+        ChartDataEntry(x:3, y:73.910),
+        ChartDataEntry(x:4, y:73.990),
+        ChartDataEntry(x:5, y:73.899),
+        
+    ]
     
-    set1.mode = .cubicBezier
-    set1.lineWidth = 2.5
-    set1.setColor(.white)
-    set1.drawCirclesEnabled = false
-    set1.fill = Fill(color: .white)
-    set1.fillAlpha = 0.8
-    set1.drawFilledEnabled = true
-    set1.highlightColor = .systemBlue
-    set1.valueTextColor = .systemBlue
-    set1.valueFont = .boldSystemFont(ofSize: 9)
-    let data = LineChartData(dataSet: set1)
-    data.setDrawValues(true)
-    lineChartView.data = data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "AnalysisToComposition" {
+            
+            let compositionVC = segue.destination as! PortfolioCompositionView
+            let uid = sender as! String
+            compositionVC.uid = self.uid
+            compositionVC.clientID = self.clientID
+            
+        }
+    }
     
-}
-
-var ivanValues: [ChartDataEntry] = [
-    ChartDataEntry(x:0, y:73.817),
-    ChartDataEntry(x:1, y:73.816),
-    ChartDataEntry(x:2, y:73.819),
-    ChartDataEntry(x:3, y:73.910),
-    ChartDataEntry(x:4, y:73.990),
-    ChartDataEntry(x:5, y:73.899),
     
-]
-
+    
 }
 
