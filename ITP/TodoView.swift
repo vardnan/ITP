@@ -23,7 +23,6 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var todoTV: UITableView!
     
     var todos: [Todo] = []
-    
     var userID: String?
     
     override func viewDidLoad() {
@@ -36,17 +35,18 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if #available(iOS 13.0, *) {
-            navigationController?.navigationBar.setNeedsLayout()
-        }
-    } 
+    /*override func viewWillAppear(_ animated: Bool) {
+     super.viewWillAppear(animated)
+     if #available(iOS 13.0, *) {
+     navigationController?.navigationBar.setNeedsLayout()
+     }
+     } */
     
     @IBAction func addTodo(_ sender: Any) {
         let todoAlert = UIAlertController(title: "New Todo", message: "Add a todo", preferredStyle: .alert)
         
         todoAlert.addTextField()
+        
         let addTodoAction = UIAlertAction(title: "Add", style: .default) { (action) in
             let todoText = todoAlert.textFields![0].text
             self.todos.append(Todo(isChecked: false, todoName: todoText!))
@@ -75,7 +75,7 @@ class TodoView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let value = todoSnapshot.value as? NSDictionary
                     let isChecked = value!["isChecked"] as? Bool
                     self.todos.append(Todo(isChecked: isChecked!, todoName: todoName))
-                    print(self.todos.count)
+                    
                     self.todoTV.reloadData()
                 }
             }
