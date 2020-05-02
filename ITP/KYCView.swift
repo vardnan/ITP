@@ -27,7 +27,7 @@ class KYCView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var kycPercentage: UILabel!
     
-    let progress = Progress(totalUnitCount: 10)
+    let progress = Progress(totalUnitCount: 8)
     
     var kyc: [Kyc] = []
     
