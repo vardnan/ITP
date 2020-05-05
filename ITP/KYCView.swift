@@ -75,7 +75,7 @@ class KYCView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.kycProgress.setProgress(progressFloat, animated: true)
         
         DispatchQueue.main.async {
-            self.kycPercentage.text = String(self.isCheckedCount*10) + " %"
+            self.kycPercentage.text = String(Int(self.progress.fractionCompleted*100)) + " %"
         }
     }
     
